@@ -15,7 +15,7 @@ disease_model = tf.keras.models.load_model(
     "C:/Users/UG/Desktop/research backend/mlops/models/diseaseDetectionModel.h5"
 )
 fatigue_model = joblib.load(
-    "C:/Users/UG/Desktop/research backend/mlops/models/fatigue_model.joblib"
+    "C:/Users/UG/Desktop/research backend/mlops/models/knn_model.joblib"
 )
 
 diseases_values = [
@@ -33,9 +33,17 @@ diseases_values = [
     "Xanthelasma Yellow Spots on Your Eyelids",
 ]
 
-fatigue_classes = ["alert", "non_vigilant", "tired"]
+fatigue_classes = ["tired", "non_vigilant", "alert"]
 
-emotion_classes = ["angry", "disgust", "fear", "happy", "neutral", "sad", "surprise"]
+emotion_classes = [
+    "happy",
+    "neutral",
+    "sad",
+    "angry",
+    "fear",
+    "disgust",
+    "surprise",
+]
 
 
 def detect_face(image):
@@ -95,7 +103,7 @@ def predict_fatigue(image):
     img = np.expand_dims(img, axis=0)
     embedding = facenet.embeddings(img)
     pred_json = fatigue_model.predict(embedding)
-    pred = fatigue_classes[pred_json[0]]
+    pred = pred_json[0]
     return pred, pred_json
 
 
@@ -107,7 +115,7 @@ def train_fatigue(image, label):
     fatigue_model.fit(embedding, [label])
     joblib.dump(
         fatigue_model,
-        "C:/Users/UG/Desktop/research backend/mlops/models/fatigue_model.joblib",
+        "C:/Users/UG/Desktop/research backend/mlops/models/knn_model.joblib",
     )
 
 
@@ -161,5 +169,3 @@ def handle_new_data_utils(label_obj, prediction, training):
     )
     label_obj.trained = True
     label_obj.save()
-
-
