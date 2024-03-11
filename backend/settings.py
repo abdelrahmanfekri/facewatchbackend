@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-(y*!$d0mm(72llfsm68)#wpb)j2yy3y6dsze8z)-#gujyl*!_h
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ["*"]
+CSRF_TRUSTED_ORIGINS = ["https://hammerhead-app-pxhlz.ondigitalocean.app"]
 
 
 # Application definition
