@@ -19,7 +19,6 @@ ENV DJANGO_SETTINGS_MODULE=backend.settings
 # Collect static files
 RUN python manage.py collectstatic --noinput
 
-# Expose port
-EXPOSE 8000
-
+# Start the Django development server when the container starts
+CMD ["python", "manage.py", "runserver"]
  
