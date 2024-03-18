@@ -1,5 +1,5 @@
 # Base image
-FROM python:3.8-slim-buster
+FROM python:3.9
 
 # Set working directory
 WORKDIR /code
@@ -18,6 +18,9 @@ ENV DJANGO_SETTINGS_MODULE=backend.settings
 
 # Collect static files
 RUN python manage.py collectstatic --noinput
+
+# Expose port
+EXPOSE 8000
 
 # Start the Django development server when the container starts
 CMD ["python", "manage.py", "runserver"]
