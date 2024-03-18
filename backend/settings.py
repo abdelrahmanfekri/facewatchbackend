@@ -102,7 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://hammerhead-app-pxhlz.ondigitalocean.app',
+    'https://plankton-app-ir4bk.ondigitalocean.app',
     # Add other trusted origins if needed
 ]
 
