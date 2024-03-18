@@ -18,6 +18,6 @@ ENV DJANGO_SETTINGS_MODULE=backend.settings
 # Collect static files
 RUN python manage.py collectstatic --noinput
 
-# Start the Django development server when the container starts
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Run python server
+CMD ["python", "manage.py", "runserver"]
  
