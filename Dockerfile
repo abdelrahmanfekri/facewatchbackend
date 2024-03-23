@@ -14,6 +14,12 @@ COPY . /code/
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
+# make migrations
+RUN python manage.py makemigrations
+
+# Apply the migrations
+RUN python manage.py migrate
+
 # Expose the port the app runs on
 EXPOSE 8000
 
