@@ -21,13 +21,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-(y*!$d0mm(72llfsm68)#wpb)j2yy3y6dsze8z)-#gujyl*!_h"
+SECRET_KEY = "django-insecure-djangokey"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 ALLOWED_HOSTS = ["*"]
 
+CSRF_TRUSTED_ORIGINS = ["https://plankton-app-ir4bk.ondigitalocean.app"]
 
 # Application definition
 
