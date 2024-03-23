@@ -1,27 +1,21 @@
-# Base image
-FROM python:3.9
-
-# Set working directory
-WORKDIR /code
-
-# Install dependencies
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-
-# Copy project files
-COPY . .
+# Use an official Python runtime as a parent image
+FROM python:3.8
 
 # Set environment variables
-ENV PYTHONUNBUFFERED=1
-ENV DJANGO_SETTINGS_MODULE=backend.settings
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
-# Collect static files
-RUN python manage.py collectstatic --noinput
+# Set the working directory in the container
+WORKDIR /code
 
-# Expose port
+# Copy the current directory contents into the container at /code
+COPY . /code/
+
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Expose the port the app runs on
 EXPOSE 8000
 
-# Start the Django development server when the container starts
-CMD ["python", "manage.py", "runserver"]
- 
+# Run the Django development server
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
