@@ -5,5 +5,9 @@ services:
     command: python manage.py runserver 0.0.0.0:8000
     ports:
       - "8000:8000"
+    env:
+      # django admin
+      - DJANGO_SUPERUSER_USERNAME=root
+      - DJANGO_SUPERUSER_PASSWORD=root
     volumes:
       - .:/app
