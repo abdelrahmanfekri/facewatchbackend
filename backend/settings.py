@@ -32,7 +32,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
-CSRF_TRUSTED_ORIGINS = ["https://plankton-app-ir4bk.ondigitalocean.app"]
+CSRF_TRUSTED_ORIGINS = ["http://146.190.132.226:8000"]
 
 # Application definition
 
